@@ -1,7 +1,7 @@
 import {
     Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem,
     Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label
+    Form, FormGroup, Input, Label,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -67,6 +67,16 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
+                <div className="container">
+                    <div className='jumbotron' style={{ 'backgroundColor': '#6f42c1' }}>
+                        <div className="row row-header">
+                            <div className="col-12 col-sm-6">
+                                <h1>Ristorante con Fusion</h1>
+                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
