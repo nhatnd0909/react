@@ -60,11 +60,11 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> Login</Button>
-                                </NavItem>
                             </Nav>
                         </Collapse>
+                        <NavItem style={{ 'listStyle': 'none' }}>
+                            <Button outline onClick={this.toggleModal}><span className="fa fa-sign-in fa-lg"></span> Login</Button>
+                        </NavItem>
                     </div>
                 </Navbar>
                 <div className="container">
