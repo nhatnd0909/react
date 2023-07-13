@@ -4,28 +4,39 @@ import {
     CardTitle, Breadcrumb, BreadcrumbItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
-
-function RenderMenuItem({ dish, onClick }) {
-    return (
-        <Card>
-            <Link to={`/menu/${dish.id}`} >
-                <CardImg width="100%" src={dish.image} alt={dish.name} />
-                <CardImgOverlay>
-                    <CardTitle><h5>{dish.name}</h5></CardTitle>
-                </CardImgOverlay>
-            </Link>
-        </Card>
-    );
+function RenderMenuItem({ dish, isLoading, errMess }) {
+    if (isLoading) {
+        return (
+            <Loading />
+        );
+    }
+    else if (errMess) {
+        return (
+            <h4>{errMess}</h4>
+        );
+    }
+    else
+        return (
+            <Card>
+                <Link to={`/menu/${dish.id}`} >
+                    <CardImg width="100%" src={dish.image} alt={dish.name} />
+                    <CardImgOverlay>
+                        <CardTitle><h5>{dish.name}</h5></CardTitle>
+                    </CardImgOverlay>
+                </Link>
+            </Card>
+        );
 }
 
 const Menu = (props) => {
 
-    const menu = props.dishes.map((dish) => {
+    const menu = props.dishes.dishes.map((dish) => {
         return (
             <div className="col-12 col-md-5 m-1" key={dish.id}>
                 {/* <RenderMenuItem dish={dish} onClick={props.onClick} /> */}
-                <RenderMenuItem dish={dish} />
+                <RenderMenuItem dish={dish} isLoading={props.dishesLoading} errMess={props.dishesErrMess} />
             </div>
         );
     });
